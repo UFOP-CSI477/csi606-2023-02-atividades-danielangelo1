@@ -3,11 +3,11 @@
 
 ## Atualize os seus dados
 
-- Nome:
-- Matrícula:
-- Curso:
-- Semestre/Ano correntes:
-- Link para o seu GitHub:
+- Nome: Daniel Ângelo Rosa Morais
+- Matrícula: 21.1.8128
+- Curso: Sistemas de Informação
+- Semestre/Ano correntes: 23/2
+- Link para o seu GitHub: https://github.com/danielangelo1
 
 ## [Projeto final:](./Projeto/README.md)
 
