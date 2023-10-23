@@ -8,19 +8,31 @@
 
 ### Resumo
 
-(Apresentar um breve resumo sobre o seu trabalho, indicando o contexto e as principais funcionalidades.)
+Facilitar e otimizar o processo de doação de sangue, conectando doadores, bancos de sangue e pacientes de forma eficiente e segura. O sistema abrange desde o cadastro de doadores até o rastreamento da utilização do sangue doado.
 
 <!-- Apresentar o tema. -->
 
 ### 1. Tema
 
-O trabalho final tem como tema o desenvolvimento de ...
+O trabalho final tem como tema o desenvolvimento de um sistema de gerenciamento de doação de sangue.
 
 <!-- Descrever e limitar o escopo da aplicação. -->
 
 ### 2. Escopo
 
-Este projeto terá as seguintes funcionalidades...
+Este projeto terá as seguintes funcionalidades:
+
+Cadastro de Doadores
+
+Agendamento de Doações
+
+Acompanhamento de Doações
+
+Banco de Sangue
+
+Solicitação de Sangue
+
+Notificações
 
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
 
