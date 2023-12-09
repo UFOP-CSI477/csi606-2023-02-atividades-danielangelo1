@@ -1,13 +1,10 @@
 const express = require("express");
 const routes = express.Router();
 
-const PersonController = require("./app/controller/personController");
+const personRoutes = require("./app/routes/personRoutes");
+const donationRoutes = require("./app/routes/donationRoutes");
 
-routes.get("/persons", PersonController.index);
-routes.get("/persons/:id", PersonController.show);
-routes.get("/persons/name/:name", PersonController.showByName);
-routes.post("/persons", PersonController.store);
-routes.put("/persons/:id", PersonController.update);
-routes.delete("/persons/:id", PersonController.destroy);
+routes.use(personRoutes);
+routes.use(donationRoutes);
 
 module.exports = routes;
