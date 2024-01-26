@@ -1,0 +1,8 @@
+@import "../../App.scss";
+
+.link {
+  text-decoration: none;
+  color: $gray-different;
+  display: flex;
+  justify-content: space-between;
+}
