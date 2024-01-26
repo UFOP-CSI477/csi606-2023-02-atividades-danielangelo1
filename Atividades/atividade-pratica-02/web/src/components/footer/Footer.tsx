@@ -9,23 +9,21 @@ const Footer = () => {
       <footer>
         <nav className={style.menu_links}>
           <div className={style.link}>
-            <NavMenuItem to="./">
-              <HouseLine size={24} color="#98a3b3" />
-              Home
-            </NavMenuItem>
+            <HouseLine size={24} color="#98a3b3" />
+            <NavMenuItem to="/">Home</NavMenuItem>
           </div>
-          <NavMenuItem to="/marcacoes">
+          <div className={style.link}>
             <Calendar size={24} color="#98a3b3" />
-            Marcações
-          </NavMenuItem>
-          <NavMenuItem to="/medicos">
+            <NavMenuItem to="/marcacoes">Marcações</NavMenuItem>
+          </div>
+          <div className={style.link}>
             <Stethoscope size={24} color="#98a3b3" />
-            Médicos
-          </NavMenuItem>
-          <NavMenuItem to="/perfil">
+            <NavMenuItem to="/medicos">Médicos</NavMenuItem>
+          </div>
+          <div className={style.link}>
             <User size={24} color="#98a3b3" />
-            Perfil
-          </NavMenuItem>
+            <NavMenuItem to="/perfil">Perfil</NavMenuItem>
+          </div>
         </nav>
       </footer>
     </>

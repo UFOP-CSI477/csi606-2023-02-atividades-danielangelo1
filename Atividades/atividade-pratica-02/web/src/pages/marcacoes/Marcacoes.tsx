@@ -1,7 +1,12 @@
 import React from "react";
+import Footer from "../../components/footer/Footer";
 
 const Marcacoes = () => {
-  return <div>Consultas</div>;
+  return (
+    <>
+      <Footer />
+    </>
+  );
 };
 
 export default Marcacoes;
