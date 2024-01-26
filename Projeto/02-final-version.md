@@ -8,7 +8,7 @@
 
 ### Resumo
 
-(Apresentar um breve resumo sobre o seu trabalho, indicando o contexto e as principais funcionalidades.)
+Desenvolver um sistema de avaliação de jogos, inspirado nos modelos de plataformas como Letterboxd e RateYourMusic. A proposta visa criar uma plataforma onde os usuários podem consultar uma API de jogos, avaliar os jogos que jogaram, atribuir estrelas para criar um ranking pessoal e fornecer um resumo das avaliações realizadas. As avaliações serão salvas no backend, permitindo que os usuários editem, excluam ou adicionem novas avaliações.
 
 ### 1. Funcionalidades implementadas
 

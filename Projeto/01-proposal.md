@@ -8,37 +8,46 @@
 
 ### Resumo
 
-Facilitar e otimizar o processo de doação de sangue, conectando doadores, bancos de sangue e pacientes de forma eficiente e segura. O sistema abrange desde o cadastro de doadores até o rastreamento da utilização do sangue doado.
+Desenvolver um sistema de avaliação de jogos, inspirado nos modelos de plataformas como Letterboxd e RateYourMusic. A proposta visa criar uma plataforma onde os usuários podem consultar uma API de jogos, avaliar os jogos que jogaram, atribuir estrelas para criar um ranking pessoal e fornecer um resumo das avaliações realizadas. As avaliações serão salvas no backend, permitindo que os usuários editem, excluam ou adicionem novas avaliações.
 
 <!-- Apresentar o tema. -->
 
 ### 1. Tema
 
-O trabalho final tem como tema o desenvolvimento de um sistema de gerenciamento de doação de sangue.
+O trabalho final concentra-se na criação de um sistema de avaliação de jogos, proporcionando aos usuários uma plataforma centralizada para gerenciar suas experiências e compartilhar avaliações.
 
 <!-- Descrever e limitar o escopo da aplicação. -->
 
 ### 2. Escopo
 
-Este projeto terá as seguintes funcionalidades:
+#### 2.1 Cadastro de Usuários
 
-Cadastro de Doadores
+Permitir que os usuários se cadastrem na plataforma, possibilitando a criação de uma conta personalizada para o acesso às funcionalidades do sistema.
 
-Agendamento de Doações
+#### 2.2 Consulta de Jogos via API
 
-Acompanhamento de Doações
+Integrar uma API de jogos para fornecer uma lista abrangente de jogos disponíveis para avaliação. Essa funcionalidade permitirá aos usuários buscar informações sobre diferentes jogos.
 
-Banco de Sangue
+#### 2.3 Avaliação de Jogos
 
-Solicitação de Sangue
+Possibilitar que os usuários avaliem os jogos, atribuindo uma quantidade específica de estrelas e fornecendo um resumo da avaliação. As avaliações serão salvas no backend.
 
-Notificações
+#### 2.4 Edição, Exclusão e Adição de Avaliações
+
+Permitir que os usuários editem, excluam ou adicionem novas avaliações conforme sua experiência com o jogo evolui.
+
+#### 2.5 Ranking Pessoal
+
+Criar um sistema de ranking pessoal com base nas avaliações dos jogos, fornecendo aos usuários uma classificação dos jogos que eles mais apreciaram.
 
 <!-- Apresentar restrições de funcionalidades e de escopo. -->
 
 ### 3. Restrições
 
-Neste trabalho não serão considerados ...
+Neste trabalho, não serão consideradas:
+
+Implementação de funcionalidades não relacionadas à avaliação de jogos.
+Integração com redes sociais para compartilhamento automático de avaliações.
 
 <!-- Construir alguns protótipos para a aplicação, disponibilizá-los no Github e descrever o que foi considerado. //-->
 

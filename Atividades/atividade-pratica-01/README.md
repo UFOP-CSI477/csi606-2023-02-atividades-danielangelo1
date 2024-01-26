@@ -39,4 +39,4 @@ Para executar o projeto, siga os passos abaixo:
 3. Instale as dependências: `npm install`
 4. Execute o projeto: `npm start`
 
-O servidor estará disponível em http://localhost:3000.
+O servidor estará disponível em http://localhost:3000

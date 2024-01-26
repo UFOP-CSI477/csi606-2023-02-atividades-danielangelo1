@@ -10,6 +10,6 @@
 - Semestre/Ano correntes: 23/2
 - Link para o seu GitHub: [danielangelo1](https://github.com/danielangelo1)
 
-## [Projeto final:](./Projeto/README.md) BloodFriends
+## [Projeto final:](./Projeto/README.md) LastPlayed
 
-O BloodFriends é um Sistema de Doação de Sangue que visa facilitar e otimizar o processo de doação de sangue, conectando doadores, bancos de sangue e pacientes de forma eficiente e segura. O sistema abrange desde o cadastro de doadores até o rastreamento da utilização do sangue doado.
+Plataforma onde os usuários podem consultar uma API de jogos, avaliar os jogos que jogaram, atribuir estrelas para criar um ranking pessoal e fornecer um resumo das avaliações realizadas.
