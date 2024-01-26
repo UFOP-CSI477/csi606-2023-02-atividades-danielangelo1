@@ -1,5 +1,5 @@
 import React from "react";
-// import { Heart, Bell, UserCircle } from "@phosphor-icons/react";
+import { Heart, Bell, UserCircle } from "@phosphor-icons/react";
 import style from "./Header.module.scss";
 
 const Header = () => {
@@ -7,14 +7,16 @@ const Header = () => {
     <>
       <header>
         <div className={style.user_info}>
-          {/* <UserCircle size={24} color="#a34d4d" weight="duotone" /> */}
-          <span>Bem-vindo</span>
-          <p>Nome</p>
+          <UserCircle size={42} color="#a34d4d" weight="duotone" />
+          <div className={style.user_info_text}>
+            <span>Bem-vindo, </span>
+            <p>Nome</p>
+          </div>
         </div>
 
         <div className={style.icons}>
-          {/* <Heart size={24} color="#344154" /> */}
-          {/* <Bell size={24} color="#344154" /> */}
+          <Bell size={24} color="#344154" />
+          <Heart size={24} color="#344154" />
         </div>
       </header>
     </>
