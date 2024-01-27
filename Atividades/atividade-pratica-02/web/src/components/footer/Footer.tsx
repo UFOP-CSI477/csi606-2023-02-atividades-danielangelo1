@@ -17,7 +17,7 @@ const Footer = () => {
             Marcações
           </NavMenuItem>
 
-          <NavMenuItem to="/medicos">
+          <NavMenuItem to="/locais">
             <Stethoscope size={24} color="#98a3b3" />
             Médicos
           </NavMenuItem>

@@ -9,7 +9,7 @@ interface BloodDonation {
   data: string;
 }
 
-const API_URL = "http://localhost:3000/donations";
+const API_URL = "http://localhost:3000/donations/";
 
 const Marcacoes = () => {
   const [donations, setDonations] = useState<BloodDonation[]>([]);
@@ -21,7 +21,11 @@ const Marcacoes = () => {
   const fetchDonations = async () => {
     try {
       const response = await axios.get(API_URL);
-      setDonations(response.data);
+      if (response.data[0].length >= 0) {
+        setDonations(response.data);
+      } else {
+        alert("Não possui agendamentos!");
+      }
     } catch (error) {
       console.log("Erro na requisição", error);
     }
