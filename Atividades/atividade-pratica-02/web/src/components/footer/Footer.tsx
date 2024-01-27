@@ -8,22 +8,24 @@ const Footer = () => {
     <>
       <footer>
         <nav className={style.menu_links}>
-          <div className={style.link}>
+          <NavMenuItem to="/">
             <HouseLine size={24} color="#98a3b3" />
-            <NavMenuItem to="/">Home</NavMenuItem>
-          </div>
-          <div className={style.link}>
+            Home
+          </NavMenuItem>
+          <NavMenuItem to="/marcacoes">
             <Calendar size={24} color="#98a3b3" />
-            <NavMenuItem to="/marcacoes">Marcações</NavMenuItem>
-          </div>
-          <div className={style.link}>
+            Marcações
+          </NavMenuItem>
+
+          <NavMenuItem to="/medicos">
             <Stethoscope size={24} color="#98a3b3" />
-            <NavMenuItem to="/medicos">Médicos</NavMenuItem>
-          </div>
-          <div className={style.link}>
+            Médicos
+          </NavMenuItem>
+
+          <NavMenuItem to="/perfil">
             <User size={24} color="#98a3b3" />
-            <NavMenuItem to="/perfil">Perfil</NavMenuItem>
-          </div>
+            Perfil
+          </NavMenuItem>
         </nav>
       </footer>
     </>
