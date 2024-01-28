@@ -2,6 +2,7 @@ import React, { ChangeEvent, useEffect, useState } from "react";
 import axios from "axios";
 import DonationItem from "../../components/donationItem/DonationItem";
 import Footer from "../../components/footer/Footer";
+import DonationDialog from "../../components/donationDialog/DonationDialog";
 
 interface BloodDonation {
   person_id: number;
@@ -101,6 +102,7 @@ const Marcacoes = () => {
             />
           ))}
         </ul>
+        <DonationDialog />
       </main>
       <Footer />
     </>
