@@ -8,6 +8,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import axios from "axios";
 import { MenuItem } from "@mui/material";
+import { BloodDonation } from "../../pages/marcacoes/Marcacoes";
 
 interface PersonProps {
   _id: string;
@@ -20,12 +21,22 @@ interface LocationProps {
   cidade_id: string;
 }
 
-const DonationDialog: React.FC = () => {
+interface DonationDialogProps {
+  donationToEdit: BloodDonation | null;
+  onSave: (donation: BloodDonation) => void;
+  onClose: () => void;
+}
+
+const DonationDialog: React.FC<DonationDialogProps> = ({
+  donationToEdit,
+  onSave,
+  onClose,
+}) => {
   const [open, setOpen] = useState(false);
   const [persons, setPersons] = useState<PersonProps[]>([]);
   const [selectedPersonId, setSelectedPersonId] = useState<string>("");
   const [locations, setLocations] = useState<LocationProps[]>([]);
-  const [selectedLocationId, setSelectedLocationId] = useState<string>("");
+  const [selectedLocationId, setSelectedLocationId] = useState<number>(0);
   const [date, setDate] = useState("");
 
   const handleClickOpen = () => {
@@ -34,6 +45,7 @@ const DonationDialog: React.FC = () => {
 
   const handleClose = () => {
     setOpen(false);
+    onClose();
   };
 
   const API_URL = "http://localhost:3000";
@@ -59,32 +71,26 @@ const DonationDialog: React.FC = () => {
   useEffect(() => {
     getAllPersons();
     getAllLocations();
-  }, []);
+    if (donationToEdit) {
+      setSelectedPersonId(donationToEdit.person_id);
+      setSelectedLocationId(donationToEdit.local_id);
+      setDate(donationToEdit.data);
+      setOpen(true);
+    }
+  }, [donationToEdit]);
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const selectedPerson = persons.find(
-      (person) => person._id === selectedPersonId,
-    );
-    const selectedLocation = locations.find(
-      (location) => location.cidade_id === selectedLocationId,
-    );
+    const donation = {
+      person_id: selectedPersonId.toString(), // Converter para string
+      local_id: selectedLocationId, // Já é um número
+      data: date, // A data é tratada como string no frontend
+      _id: donationToEdit ? donationToEdit._id : undefined,
+    };
 
-    try {
-      const postData = {
-        person_id: selectedPerson?._id,
-        local_id: selectedLocation?.cidade_id,
-        data: date,
-      };
-
-      const response = await axios.post(`${API_URL}/donations`, postData);
-      console.log("Donation response:", response.data);
-
-      handleClose();
-    } catch (error) {
-      console.error("Error na requisição", error);
-    }
+    onSave(donation);
+    handleClose();
   };
 
   return (
@@ -130,8 +136,8 @@ const DonationDialog: React.FC = () => {
             fullWidth
             margin="dense"
             autoFocus
-            value={selectedLocationId}
-            onChange={(e) => setSelectedLocationId(e.target.value)}
+            value={selectedLocationId?.toString()}
+            onChange={(e) => setSelectedLocationId(Number(e.target.value))}
           >
             {locations.map((location) => (
               <MenuItem key={location.cidade_id} value={location.cidade_id}>
