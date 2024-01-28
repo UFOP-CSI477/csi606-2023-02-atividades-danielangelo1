@@ -25,6 +25,7 @@ const DonationDialog: React.FC = () => {
   const [persons, setPersons] = useState<PersonProps[]>([]);
   const [selectedPersonId, setSelectedPersonId] = useState<string>("");
   const [locations, setLocations] = useState<LocationProps[]>([]);
+  const [selectedLocationId, setSelectedLocationId] = useState<string>("");
   const [date, setDate] = useState("");
 
   const handleClickOpen = () => {
@@ -60,15 +61,30 @@ const DonationDialog: React.FC = () => {
     getAllLocations();
   }, []);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     const selectedPerson = persons.find(
       (person) => person._id === selectedPersonId,
     );
-    console.log("Selected Person: ", selectedPerson);
-    console.log("Email: ", email);
-    console.log("Date: ", date);
-    handleClose();
+    const selectedLocation = locations.find(
+      (location) => location.cidade_id === selectedLocationId,
+    );
+
+    try {
+      const postData = {
+        person_id: selectedPerson?._id,
+        local_id: selectedLocation?.cidade_id,
+        data: date,
+      };
+
+      const response = await axios.post(`${API_URL}/donations`, postData);
+      console.log("Donation response:", response.data);
+
+      handleClose();
+    } catch (error) {
+      console.error("Error na requisição", error);
+    }
   };
 
   return (
@@ -114,8 +130,8 @@ const DonationDialog: React.FC = () => {
             fullWidth
             margin="dense"
             autoFocus
-            value={selectedPersonId}
-            onChange={(e) => setSelectedPersonId(e.target.value)}
+            value={selectedLocationId}
+            onChange={(e) => setSelectedLocationId(e.target.value)}
           >
             {locations.map((location) => (
               <MenuItem key={location.cidade_id} value={location.cidade_id}>
