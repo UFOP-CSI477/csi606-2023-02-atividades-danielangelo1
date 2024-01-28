@@ -47,7 +47,7 @@ const Marcacoes = () => {
     try {
       await axios.delete(`${API_URL}/${_id}`);
       setDonations(donations.filter((donation) => donation._id !== _id));
-      alert("Doação Deletada");
+      alert("Agendamento Deletado");
     } catch (error) {
       console.error("Error ao deletar o post", error);
     }
@@ -71,7 +71,7 @@ const Marcacoes = () => {
             d._id === donation._id ? { ...d, ...response.data } : d,
           ),
         );
-        alert("Doação Atualizada");
+        alert("Agendamento Atualizada");
       } else {
         // Criar nova doação
         const response = await axios.post(API_URL, donation);

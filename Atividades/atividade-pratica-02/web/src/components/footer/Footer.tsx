@@ -1,7 +1,14 @@
 import React from "react";
 import NavMenuItem from "../navMenuItem/NavMenuItem";
 import style from "./Footer.module.scss";
-import { Calendar, HouseLine, Stethoscope, User } from "@phosphor-icons/react";
+import {
+  Calendar,
+  Flag,
+  GlobeHemisphereEast,
+  HouseLine,
+  Stethoscope,
+  User,
+} from "@phosphor-icons/react";
 
 const Footer = () => {
   return (
@@ -17,9 +24,14 @@ const Footer = () => {
             Marcações
           </NavMenuItem>
 
-          <NavMenuItem to="/locais">
-            <Stethoscope size={24} color="#98a3b3" />
-            Médicos
+          <NavMenuItem to="/cidades">
+            <GlobeHemisphereEast size={32} color="#98a3b3" />
+            Cidades
+          </NavMenuItem>
+
+          <NavMenuItem to="/estados">
+            <Flag size={32} color="#98a3b3" />
+            Estados
           </NavMenuItem>
 
           <NavMenuItem to="/perfil">

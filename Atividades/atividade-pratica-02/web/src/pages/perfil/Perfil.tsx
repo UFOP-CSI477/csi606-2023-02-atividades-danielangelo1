@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Footer from "../../components/footer/Footer";
 import axios from "axios";
 import PersonItem from "../../components/personItem/PersonItem";
+import Header from "../../components/header/Header";
 
 interface PersonProps {
   name: string;
@@ -31,6 +32,7 @@ const Perfil = () => {
   };
   return (
     <>
+      <Header />
       <main>
         <ul>
           {persons.map((person) => (
