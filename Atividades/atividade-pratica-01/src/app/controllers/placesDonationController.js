@@ -1,9 +1,9 @@
-const placesDonation = require("../models/placesDonation");
+const PlacesDonation = require("../models/placesDonation");
 
 class placesDonationController {
   async index(req, res) {
     try {
-      const placesDonation = await placesDonation.find();
+      const placesDonation = await PlacesDonation.find();
 
       return res.json(placesDonation);
     } catch (err) {
@@ -13,7 +13,7 @@ class placesDonationController {
 
   async show(req, res) {
     try {
-      const placesDonation = await placesDonation.findById(req.params.id);
+      const placesDonation = await PlacesDonation.findById(req.params.id);
 
       return res.json(placesDonation);
     } catch (err) {
@@ -23,7 +23,7 @@ class placesDonationController {
 
   async showByName(req, res) {
     try {
-      const placesDonation = await placesDonation.find({
+      const placesDonation = await PlacesDonation.find({
         name: req.params.name,
       });
 
@@ -35,7 +35,7 @@ class placesDonationController {
 
   async store(req, res) {
     try {
-      const placesDonation = await placesDonation.create(req.body);
+      const placesDonation = await PlacesDonation.create(req.body);
 
       return res.json(placesDonation);
     } catch (err) {
@@ -45,12 +45,12 @@ class placesDonationController {
 
   async update(req, res) {
     try {
-      const placesDonation = await placesDonation.findByIdAndUpdate(
+      const placesDonation = await PlacesDonation.findByIdAndUpdate(
         req.params.id,
         req.body,
         {
           new: true,
-        }
+        },
       );
 
       return res.json(placesDonation);
@@ -61,7 +61,7 @@ class placesDonationController {
 
   async destroy(req, res) {
     try {
-      await placesDonation.findByIdAndDelete(req.params.id);
+      await PlacesDonation.findByIdAndDelete(req.params.id);
 
       return res.send();
     } catch (err) {
