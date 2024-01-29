@@ -53,10 +53,6 @@ const Marcacoes = () => {
     }
   };
 
-  const handleClickOpen = () => {
-    setIsDialogOpen(true);
-  };
-
   const handleSaveDonation = async (donation: BloodDonation) => {
     try {
       if (donation._id) {
