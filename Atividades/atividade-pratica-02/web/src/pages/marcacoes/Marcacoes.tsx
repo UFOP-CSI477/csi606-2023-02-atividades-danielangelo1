@@ -56,12 +56,10 @@ const Marcacoes = () => {
   const handleSaveDonation = async (donation: BloodDonation) => {
     try {
       if (donation._id) {
-        // Atualizar doação existente
         const response = await axios.put(
           `${API_URL}/${donation._id}`,
           donation,
         );
-        // Atualiza a lista de doações com a doação atualizada
         setDonations(
           donations.map((d) =>
             d._id === donation._id ? { ...d, ...response.data } : d,
@@ -69,12 +67,10 @@ const Marcacoes = () => {
         );
         alert("Agendamento Atualizada");
       } else {
-        // Criar nova doação
         const response = await axios.post(API_URL, donation);
-        // Adiciona a nova doação à lista de doações
         setDonations([...donations, response.data]);
       }
-      handleCloseDialog(); // Fechar o dialog após salvar
+      handleCloseDialog();
     } catch (error) {
       console.error("Erro ao salvar a doação", error);
     }
@@ -104,9 +100,6 @@ const Marcacoes = () => {
             />
           ))}
         </ul>
-        {/* <Button variant="contained" onClick={handleClickOpen}>
-          Marcar Consulta
-        </Button> */}
 
         {isDialogOpen && (
           <DonationDialog

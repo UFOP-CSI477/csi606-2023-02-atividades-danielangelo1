@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
+
 import DialogTitle from "@mui/material/DialogTitle";
 import { CityProps } from "../../pages/cidades/Cidades";
 
@@ -31,7 +31,7 @@ const CityDialog = ({ cityToEdit, onSave, onClose }: CityDialogProps) => {
     event.preventDefault();
     const city = {
       name: cityName,
-      estado_id: 0, // Certifique-se de tratar essa parte conforme necessário
+      estado_id: 0,
       _id: cityToEdit?._id ? cityToEdit._id : undefined,
     };
     onSave(city);
@@ -40,7 +40,7 @@ const CityDialog = ({ cityToEdit, onSave, onClose }: CityDialogProps) => {
 
   React.useEffect(() => {
     if (cityToEdit) {
-      setCityName(cityToEdit.name); // Aqui deve ser o nome, não o _id
+      setCityName(cityToEdit.name);
       setOpen(true);
     }
   }, [cityToEdit]);
