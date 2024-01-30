@@ -6,7 +6,7 @@ const Estados = () => {
   return (
     <>
       <Header />
-      <p>Estados</p>
+      <h1>Estados</h1>
       <Footer />
     </>
   );
