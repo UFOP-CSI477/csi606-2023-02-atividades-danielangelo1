@@ -59,7 +59,7 @@ const PersonDialog = ({ personToEdit, onSave, onClose }: PersonDialogProps) => {
   return (
     <>
       <Button variant="contained" onClick={handleClickOpen}>
-        Adicionar cidade
+        Adicionar Pessoa
       </Button>
       <Dialog
         open={open}
@@ -69,7 +69,7 @@ const PersonDialog = ({ personToEdit, onSave, onClose }: PersonDialogProps) => {
           onSubmit: handleSubmit,
         }}
       >
-        <DialogTitle>Criar Cidade</DialogTitle>
+        <DialogTitle>Adicionar Pessoa</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus

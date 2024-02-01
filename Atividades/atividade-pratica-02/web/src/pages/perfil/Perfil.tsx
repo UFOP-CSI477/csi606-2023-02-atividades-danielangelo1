@@ -80,6 +80,7 @@ const Perfil = () => {
   return (
     <>
       <Header />
+      <h1>Lista pessoas</h1>
       <main>
         <ul>
           {persons.map((person) => (

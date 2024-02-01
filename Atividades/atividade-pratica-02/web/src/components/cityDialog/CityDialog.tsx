@@ -7,6 +7,8 @@ import DialogContent from "@mui/material/DialogContent";
 
 import DialogTitle from "@mui/material/DialogTitle";
 import { CityProps } from "../../pages/cidades/Cidades";
+import { API_URL } from "../../utils/API";
+import axios from "axios";
 
 interface CityDialogProps {
   cityToEdit: CityProps | null;
@@ -17,6 +19,7 @@ interface CityDialogProps {
 const CityDialog = ({ cityToEdit, onSave, onClose }: CityDialogProps) => {
   const [open, setOpen] = React.useState(false);
   const [cityName, setCityName] = React.useState<string>("");
+  const [estadoId, setEstadoId] = React.useState<number>(0);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -36,6 +39,15 @@ const CityDialog = ({ cityToEdit, onSave, onClose }: CityDialogProps) => {
     };
     onSave(city);
     handleClose();
+  };
+
+  const getAllStatesId = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/states`);
+      return response.data;
+    } catch (error) {
+      console.error("Error na requisição", error);
+    }
   };
 
   React.useEffect(() => {
@@ -72,6 +84,17 @@ const CityDialog = ({ cityToEdit, onSave, onClose }: CityDialogProps) => {
             variant="standard"
             value={cityName}
             onChange={(e) => setCityName(e.target.value)}
+          />
+          <TextField
+            id="select"
+            label="ID do Estado"
+            select
+            required
+            fullWidth
+            margin="dense"
+            autoFocus
+            value={estadoId}
+            onChange={(e) => setEstadoId(Number(e.target.value))}
           />
         </DialogContent>
         <DialogActions>
