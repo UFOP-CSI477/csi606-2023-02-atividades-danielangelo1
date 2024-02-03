@@ -4,6 +4,7 @@ import Header from "../../components/header/Header";
 import axios from "axios";
 import CityDialog from "../../components/cityDialog/CityDialog";
 import CityItem from "../../components/cityItem/CityItem";
+import { BASEAPI_URL } from "../../utils/API";
 
 export interface CityProps {
   name: string;
@@ -17,6 +18,7 @@ const Cidades = () => {
   const [cities, setCities] = useState<CityProps[]>([]);
   const [editingCities, setEditingCities] = useState<CityProps | null>(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+
   useEffect(() => {
     fetchCities();
     setIsDialogOpen(true);
@@ -24,7 +26,7 @@ const Cidades = () => {
 
   const fetchCities = async () => {
     try {
-      const response = await axios.get(API_URL);
+      const response = await axios.get(`${API_URL}`);
       setCities(response.data);
     } catch (error) {
       console.error("Error na requisição", error);
@@ -47,8 +49,20 @@ const Cidades = () => {
   };
 
   const handleCloseDialog = () => {
-    setIsDialogOpen(false);
+    setIsDialogOpen(true);
     setEditingCities(null);
+  };
+
+  const createDonationLocation = async (city: CityProps) => {
+    try {
+      await axios.post(`${BASEAPI_URL}/placesDonation`, {
+        name: city.name,
+        address: "Endereço",
+        cidade_id: city._id,
+      });
+    } catch (error) {
+      console.error("Error na requisição", error);
+    }
   };
 
   const handleSaveCity = async (city: CityProps) => {
@@ -66,6 +80,7 @@ const Cidades = () => {
         const response = await axios.post(API_URL, city);
         setCities([...cities, response.data]);
       }
+      createDonationLocation(city);
       handleCloseDialog();
     } catch (error) {
       console.error("Error ao salvar", error);
@@ -77,6 +92,10 @@ const Cidades = () => {
       <Header />
       <main>
         <h1>Cidades</h1>
+        <p>
+          Ao criar uma cidade é automaticamente criado no banco um Local de
+          Doação.
+        </p>
         <ul>
           {cities.map((city) => (
             <CityItem

@@ -10,7 +10,7 @@ const Header = () => {
           <UserCircle size={42} color="#98a3b3" weight="duotone" />
           <div className={style.user_info_text}>
             <span>Bem-vindo, </span>
-            <p>Nome</p>
+            <p>Doador</p>
           </div>
         </div>
 

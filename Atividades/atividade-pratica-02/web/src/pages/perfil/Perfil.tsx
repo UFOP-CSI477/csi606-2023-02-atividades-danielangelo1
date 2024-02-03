@@ -53,7 +53,7 @@ const Perfil = () => {
   };
 
   const handleCloseDialog = () => {
-    setIsDialogOpen(false);
+    setIsDialogOpen(true);
     setEditingPersons(null);
   };
 

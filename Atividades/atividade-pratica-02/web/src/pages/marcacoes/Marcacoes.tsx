@@ -77,7 +77,7 @@ const Marcacoes = () => {
   };
 
   const handleCloseDialog = () => {
-    setIsDialogOpen(false);
+    setIsDialogOpen(true);
     setEditDonation(null);
   };
 

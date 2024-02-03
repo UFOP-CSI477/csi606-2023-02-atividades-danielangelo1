@@ -7,7 +7,7 @@ import DialogContent from "@mui/material/DialogContent";
 
 import DialogTitle from "@mui/material/DialogTitle";
 import { CityProps } from "../../pages/cidades/Cidades";
-import { API_URL } from "../../utils/API";
+import { BASEAPI_URL } from "../../utils/API";
 import axios from "axios";
 import { MenuItem } from "@mui/material";
 import { IState } from "../../pages/estados/Estados";
@@ -46,7 +46,7 @@ const CityDialog = ({ cityToEdit, onSave, onClose }: CityDialogProps) => {
 
   const getAllStates = async () => {
     try {
-      const response = await axios.get(`${API_URL}/states`);
+      const response = await axios.get(`${BASEAPI_URL}/states`);
       const states = response.data;
       setEstado(states);
     } catch (error) {
@@ -93,7 +93,7 @@ const CityDialog = ({ cityToEdit, onSave, onClose }: CityDialogProps) => {
           />
           <TextField
             id="select"
-            label="ID do Estado"
+            label="Estado"
             select
             required
             fullWidth
