@@ -4,7 +4,7 @@ import Footer from "../../components/footer/Footer";
 
 export interface IState {
   name: string;
-  id: string;
+  _id: string;
 }
 
 const Estados = () => {

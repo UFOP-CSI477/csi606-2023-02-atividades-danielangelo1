@@ -9,6 +9,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import { CityProps } from "../../pages/cidades/Cidades";
 import { API_URL } from "../../utils/API";
 import axios from "axios";
+import { MenuItem } from "@mui/material";
+import { IState } from "../../pages/estados/Estados";
 
 interface CityDialogProps {
   cityToEdit: CityProps | null;
@@ -19,7 +21,8 @@ interface CityDialogProps {
 const CityDialog = ({ cityToEdit, onSave, onClose }: CityDialogProps) => {
   const [open, setOpen] = React.useState(false);
   const [cityName, setCityName] = React.useState<string>("");
-  const [estadoId, setEstadoId] = React.useState<number>(0);
+  const [estado, setEstado] = React.useState<IState[]>([]);
+  const [estadoId, setEstadoId] = React.useState<string>("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -34,17 +37,18 @@ const CityDialog = ({ cityToEdit, onSave, onClose }: CityDialogProps) => {
     event.preventDefault();
     const city = {
       name: cityName,
-      estado_id: 0,
+      estado_id: estadoId,
       _id: cityToEdit?._id ? cityToEdit._id : undefined,
     };
     onSave(city);
     handleClose();
   };
 
-  const getAllStatesId = async () => {
+  const getAllStates = async () => {
     try {
       const response = await axios.get(`${API_URL}/states`);
-      return response.data;
+      const states = response.data;
+      setEstado(states);
     } catch (error) {
       console.error("Error na requisição", error);
     }
@@ -53,8 +57,10 @@ const CityDialog = ({ cityToEdit, onSave, onClose }: CityDialogProps) => {
   React.useEffect(() => {
     if (cityToEdit) {
       setCityName(cityToEdit.name);
+      setEstadoId(cityToEdit.estado_id);
       setOpen(true);
     }
+    getAllStates();
   }, [cityToEdit]);
 
   return (
@@ -94,8 +100,14 @@ const CityDialog = ({ cityToEdit, onSave, onClose }: CityDialogProps) => {
             margin="dense"
             autoFocus
             value={estadoId}
-            onChange={(e) => setEstadoId(Number(e.target.value))}
-          />
+            onChange={(e) => setEstadoId(e.target.value)}
+          >
+            {estado.map((estado) => (
+              <MenuItem key={estado._id} value={estado._id}>
+                {estado.name}
+              </MenuItem>
+            ))}
+          </TextField>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancelar</Button>

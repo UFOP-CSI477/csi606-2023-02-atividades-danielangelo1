@@ -6,7 +6,7 @@ import { PencilSimple } from "@phosphor-icons/react/dist/ssr";
 
 export interface CityItemProps {
   name: string;
-  estado_id?: number;
+  estado_id: String;
   onEdit: (id: string) => void;
   onDelete: (id: string) => void;
 }
@@ -18,7 +18,7 @@ const CityItem = ({ name, estado_id, onEdit, onDelete }: CityItemProps) => {
         <Grid container alignItems="center" justifyContent="space-between">
           <Grid item>
             <Typography variant="body1">Cidade: {name}</Typography>
-            <Typography variant="body1">Local: {estado_id}</Typography>
+            <Typography variant="body1">ID do Estado: {estado_id}</Typography>
           </Grid>
           <Grid item>
             <IconButton onClick={() => onEdit(name)}>

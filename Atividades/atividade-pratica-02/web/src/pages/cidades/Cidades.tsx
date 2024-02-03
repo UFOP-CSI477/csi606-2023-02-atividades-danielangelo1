@@ -7,7 +7,7 @@ import CityItem from "../../components/cityItem/CityItem";
 
 export interface CityProps {
   name: string;
-  estado_id: number;
+  estado_id: string;
   _id?: string;
 }
 
@@ -82,6 +82,7 @@ const Cidades = () => {
             <CityItem
               name={city.name}
               key={city._id}
+              estado_id={city.estado_id}
               onEdit={() => handleEditCities(city)}
               onDelete={() => city._id && handleDeleteCity(city._id)}
             />

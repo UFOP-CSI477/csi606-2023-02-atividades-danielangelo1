@@ -83,9 +83,9 @@ const DonationDialog: React.FC<DonationDialogProps> = ({
     event.preventDefault();
 
     const donation = {
-      person_id: selectedPersonId.toString(), // Converter para string
-      local_id: selectedLocationId, // Já é um número
-      data: date, // A data é tratada como string no frontend
+      person_id: selectedPersonId.toString(),
+      local_id: selectedLocationId,
+      data: date,
       _id: donationToEdit ? donationToEdit._id : undefined,
     };
 
