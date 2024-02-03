@@ -3,6 +3,7 @@ import { Typography, Paper, ListItem, IconButton, Grid } from "@mui/material";
 
 import { Trash } from "@phosphor-icons/react";
 import { PencilSimple } from "@phosphor-icons/react/dist/ssr";
+import { formatedDate } from "../../utils/formatedDate";
 
 interface DonationItemProps {
   person_id: string;
@@ -23,7 +24,7 @@ const DonationItem = ({
     <ListItem component={Paper} elevation={2} sx={{ mb: 2, p: 2 }}>
       <Grid container alignItems="center" justifyContent="space-between">
         <Grid item>
-          <Typography variant="body1">Data: {data}</Typography>
+          <Typography variant="body1">Data: {formatedDate(data)}</Typography>
           <Typography variant="body1">Local: {local_id}</Typography>
           <Typography variant="body1">Pessoa: {person_id}</Typography>
         </Grid>

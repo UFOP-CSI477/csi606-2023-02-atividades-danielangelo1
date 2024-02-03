@@ -58,8 +58,9 @@ const Cidades = () => {
       await axios.post(`${BASEAPI_URL}/placesDonation`, {
         name: city.name,
         address: "Endereço",
-        cidade_id: city._id,
+        cidade_id: Math.floor(Math.random() * 100) + 1,
       });
+      console.log(city);
     } catch (error) {
       console.error("Error na requisição", error);
     }
@@ -80,6 +81,7 @@ const Cidades = () => {
         const response = await axios.post(API_URL, city);
         setCities([...cities, response.data]);
       }
+      console.log(city);
       createDonationLocation(city);
       handleCloseDialog();
     } catch (error) {
