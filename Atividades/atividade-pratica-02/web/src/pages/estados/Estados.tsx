@@ -10,6 +10,8 @@ export interface IState {
   name: string;
   uf: string;
   _id?: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 const Estados = () => {
@@ -25,6 +27,7 @@ const Estados = () => {
   const fetchStates = async () => {
     try {
       const response = await axios.get(`${BASEAPI_URL}/states`);
+      console.log(response.data);
       setStates(response.data);
     } catch (error) {
       console.error("Error na requisição", error);
@@ -52,28 +55,26 @@ const Estados = () => {
   };
 
   const handleSaveState = async (state: IState) => {
-    try {
-      if (state._id) {
-        const response = await axios.put(
-          `${BASEAPI_URL}/states/${state._id}`,
-          state,
-        );
-
+    if (state._id) {
+      try {
+        await axios.put(`${BASEAPI_URL}/states/${state._id}`, state);
         setStates(
-          states.map((state) =>
-            state._id === response.data._id ? response.data : state,
-          ),
+          states.map((item) => (item._id === state._id ? state : item)),
         );
         alert("Estado atualizado");
-      } else {
+      } catch (error) {
+        console.error("Error ao atualizar estado", error);
+      }
+    } else {
+      try {
         const response = await axios.post(`${BASEAPI_URL}/states`, state);
         setStates([...states, response.data]);
         alert("Estado criado");
+      } catch (error) {
+        console.error("Error ao criar estado", error);
       }
-      handleCloseDialog();
-    } catch (error) {
-      console.error("Error ao salvar estado", error);
     }
+    setIsDialogOpen(false);
   };
 
   return (
@@ -87,6 +88,8 @@ const Estados = () => {
               key={state._id}
               name={state.name}
               uf={state.uf}
+              createdAt={state.createdAt}
+              updatedAt={state.updatedAt}
               onEdit={() => handleEditState(state)}
               onDelete={() => state._id && handleDeleteState(state._id)}
             />

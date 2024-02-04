@@ -37,6 +37,12 @@ const StateDialog = ({ stateToEdit, onSave, onClose }: StateDialogProps) => {
       name: stateName,
       uf: uf.toUpperCase(),
       _id: stateToEdit?._id ? stateToEdit._id : undefined,
+      createdAt: stateToEdit?.createdAt
+        ? stateToEdit.createdAt
+        : new Date().toISOString(),
+      updatedAt: stateToEdit?.updatedAt
+        ? stateToEdit.updatedAt
+        : new Date().toISOString(),
     };
     onSave(state);
     handleClose();
