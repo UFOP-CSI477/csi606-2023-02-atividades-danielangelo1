@@ -9,6 +9,8 @@ interface DonationItemProps {
   person_id: string;
   local_id: number;
   data: string;
+  createdAt: string;
+  updatedAt: string;
   onEdit: (id: string) => void;
   onDelete: (id: string) => void;
 }
@@ -17,6 +19,8 @@ const DonationItem = ({
   person_id,
   local_id,
   data,
+  createdAt,
+  updatedAt,
   onEdit,
   onDelete,
 }: DonationItemProps) => {
@@ -27,6 +31,14 @@ const DonationItem = ({
           <Typography variant="body1">Data: {formatedDate(data)}</Typography>
           <Typography variant="body1">Local: {local_id}</Typography>
           <Typography variant="body1">Pessoa: {person_id}</Typography>
+          <Typography variant="caption">
+            Criado em: {formatedDate(createdAt)}
+          </Typography>
+          <div>
+            <Typography variant="caption">
+              Ultima edição em: {formatedDate(updatedAt)}
+            </Typography>
+          </div>
         </Grid>
         <Grid item>
           <IconButton onClick={() => onEdit(person_id)}>

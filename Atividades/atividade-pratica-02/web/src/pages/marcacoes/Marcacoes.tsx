@@ -10,6 +10,8 @@ export interface BloodDonation {
   person_id: string;
   local_id: number;
   data: string;
+  createdAt: string;
+  updatedAt: string;
   _id?: string;
 }
 
@@ -93,6 +95,8 @@ const Marcacoes = () => {
               data={donation.data}
               person_id={donation.person_id}
               local_id={donation.local_id}
+              createdAt={donation.createdAt}
+              updatedAt={donation.updatedAt}
               onEdit={() => handleEditDonation(donation)}
               onDelete={() =>
                 donation._id && handleDeleteDonation(donation._id)

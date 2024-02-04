@@ -87,6 +87,12 @@ const DonationDialog: React.FC<DonationDialogProps> = ({
       local_id: selectedLocationId,
       data: date,
       _id: donationToEdit ? donationToEdit._id : undefined,
+      createdAt: donationToEdit?.createdAt
+        ? donationToEdit.createdAt
+        : new Date().toISOString(),
+      updatedAt: donationToEdit?.updatedAt
+        ? donationToEdit.updatedAt
+        : new Date().toISOString(),
     };
 
     onSave(donation);

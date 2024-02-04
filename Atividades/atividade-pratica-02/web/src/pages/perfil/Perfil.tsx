@@ -12,6 +12,8 @@ export interface PersonProps {
   cidade_id: number;
   tipo_id: number;
   _id?: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 const API_URL = "http://localhost:3000/persons";
@@ -91,6 +93,8 @@ const Perfil = () => {
               rg={person.rg}
               cidade_id={person.cidade_id}
               tipo_id={person.tipo_id}
+              createdAt={person.createdAt}
+              updatedAt={person.updatedAt}
               onEdit={() => handleEditPersons(person)}
               onDelete={() => person._id && handleDeletePerson(person._id)}
             />

@@ -40,6 +40,12 @@ const PersonDialog = ({ personToEdit, onSave, onClose }: PersonDialogProps) => {
       cidade_id: cidadeId,
       tipo_id: tipoId,
       _id: personToEdit?._id ? personToEdit._id : undefined,
+      createdAt: personToEdit?.createdAt
+        ? personToEdit.createdAt
+        : new Date().toISOString(),
+      updatedAt: personToEdit?.updatedAt
+        ? personToEdit.updatedAt
+        : new Date().toISOString(),
     };
     onSave(person);
     handleClose();

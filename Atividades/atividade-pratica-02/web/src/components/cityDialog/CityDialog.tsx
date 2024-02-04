@@ -39,6 +39,12 @@ const CityDialog = ({ cityToEdit, onSave, onClose }: CityDialogProps) => {
       name: cityName,
       estado_id: estadoId,
       _id: cityToEdit?._id ? cityToEdit._id : undefined,
+      createdAt: cityToEdit?.createdAt
+        ? cityToEdit.createdAt
+        : new Date().toISOString(),
+      updatedAt: cityToEdit?.updatedAt
+        ? cityToEdit.updatedAt
+        : new Date().toISOString(),
     };
     onSave(city);
     handleClose();

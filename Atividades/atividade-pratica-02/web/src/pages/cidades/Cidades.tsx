@@ -10,6 +10,8 @@ export interface CityProps {
   name: string;
   estado_id: string;
   _id?: string;
+  createdAt: string;
+  updatedAt: string;
 }
 
 const API_URL = "http://localhost:3000/city";
@@ -104,6 +106,8 @@ const Cidades = () => {
               name={city.name}
               key={city._id}
               estado_id={city.estado_id}
+              createdAt={city.createdAt}
+              updatedAt={city.updatedAt}
               onEdit={() => handleEditCities(city)}
               onDelete={() => city._id && handleDeleteCity(city._id)}
             />

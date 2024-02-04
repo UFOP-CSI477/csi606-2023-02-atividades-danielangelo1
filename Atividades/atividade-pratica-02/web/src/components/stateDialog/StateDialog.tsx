@@ -6,9 +6,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 
 import DialogTitle from "@mui/material/DialogTitle";
-import { BASEAPI_URL } from "../../utils/API";
-import axios from "axios";
-import { MenuItem } from "@mui/material";
+
 import { IState } from "../../pages/estados/Estados";
 
 interface StateDialogProps {
