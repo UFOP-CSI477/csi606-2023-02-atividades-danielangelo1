@@ -32,7 +32,7 @@ export async function routes(
   fastify.get(
     "/games",
     async (request: FastifyRequest, reply: FastifyReply) => {
-      return new ListGameController().handle(request, reply)
+      return new ListGameController().handle(request, reply);
     },
   );
 }

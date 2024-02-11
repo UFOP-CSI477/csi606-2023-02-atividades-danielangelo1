@@ -1,13 +1,11 @@
 import prismaClient from "../../index";
 
-class ListGameService{
-  async handle(){
+class ListGameService {
+  async handle() {
+    const games = await prismaClient.game.findMany();
 
-  const games = await prismaClient.game.findMany();
-
-  return games;
+    return games;
+  }
 }
 
-}
-
-export { ListGameService }
+export { ListGameService };

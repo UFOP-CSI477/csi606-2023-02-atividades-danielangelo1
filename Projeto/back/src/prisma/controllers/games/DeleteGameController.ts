@@ -1,18 +1,17 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { DeleteGameService } from "../../services/games/DeleteGameService";
 
-class DeleteGameController{
+class DeleteGameController {
   async delete(request: FastifyRequest, reply: FastifyReply) {
-    const {id} = request.params as {
+    const { id } = request.params as {
       id: string;
-    } 
+    };
 
     const gameService = new DeleteGameService();
-    const game = await gameService.handle({id});
+    const game = await gameService.handle({ id });
 
     reply.send(game);
   }
-
 }
 
-export { DeleteGameController}
+export { DeleteGameController };

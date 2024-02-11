@@ -31,3 +31,15 @@ model User {
 
   @@map("users")
 }
+
+model GameReview{
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  game_id    String  
+  user_id    String  
+  review     String
+  rating     Int
+  created_at DateTime? @default(now())
+  updated_at DateTime? @default(now())
+
+  @@map("game_reviews")
+}
