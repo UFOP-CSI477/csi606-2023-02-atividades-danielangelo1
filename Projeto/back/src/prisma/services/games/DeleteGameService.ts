@@ -1,11 +1,11 @@
-import prismaClient from "..";
+import prismaClient from "../../index";
 
 interface delateGameProps {
   id: string;
 }
 
 class DeleteGameService{
-  async delete({ id }: delateGameProps) {
+  async handle({ id }: delateGameProps) {
 if(!id){
   throw new Error("Preencha todos os campos")
 }
@@ -16,7 +16,7 @@ const game = await prismaClient.game.delete({
   }
 })
 
-return game;
+return{ message: "Game deletado com sucesso!"}
   }
 }
 

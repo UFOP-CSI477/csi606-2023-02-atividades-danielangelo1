@@ -1,7 +1,8 @@
 import fastify, { FastifyReply, FastifyRequest } from "fastify";
 import { FastifyInstance, FastifyPluginOptions } from "fastify";
-import { CreateGameController } from "./prisma/controllers/CreateGameController";
-import { DeleteGameController } from "./prisma/controllers/DeleteGameController";
+import { CreateGameController } from "./prisma/controllers/games/CreateGameController";
+import { DeleteGameController } from "./prisma/controllers/games/DeleteGameController";
+import { ListGameController } from "./prisma/controllers/games/ListGameController";
 
 export async function routes(
   fastify: FastifyInstance,
@@ -25,6 +26,13 @@ export async function routes(
     "/game/:id",
     async (request: FastifyRequest, reply: FastifyReply) => {
       return new DeleteGameController().delete(request, reply);
+    },
+  );
+
+  fastify.get(
+    "/games",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      return new ListGameController().handle(request, reply)
     },
   );
 }

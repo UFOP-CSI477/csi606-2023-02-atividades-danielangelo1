@@ -1,4 +1,4 @@
-import prismaClient from "..";
+import prismaClient from "../../index";
 
 interface createGameProps {
   name: string;

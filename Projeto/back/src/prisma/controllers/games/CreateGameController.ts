@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { CreateGameService } from "../services/CreateGameService";
+import { CreateGameService } from "../../services/games/CreateGameService";
 
 class CreateGameController {
   async handle(request: FastifyRequest, reply: FastifyReply) {

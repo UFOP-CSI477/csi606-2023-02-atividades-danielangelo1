@@ -1,5 +1,5 @@
 import { FastifyReply, FastifyRequest } from "fastify";
-import { DeleteGameService } from "../services/DeleteGameService";
+import { DeleteGameService } from "../../services/games/DeleteGameService";
 
 class DeleteGameController{
   async delete(request: FastifyRequest, reply: FastifyReply) {
@@ -8,7 +8,7 @@ class DeleteGameController{
     } 
 
     const gameService = new DeleteGameService();
-    const game = await gameService.delete({id});
+    const game = await gameService.handle({id});
 
     reply.send(game);
   }
