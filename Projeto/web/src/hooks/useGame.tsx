@@ -1,4 +1,8 @@
-import { createGameService, getAllGamesService } from "../services/GameService";
+import {
+  createGameService,
+  deleteGameService,
+  getAllGamesService,
+} from "../services/GameService";
 import { Game } from "../types/Game";
 
 export const useGame = () => {
