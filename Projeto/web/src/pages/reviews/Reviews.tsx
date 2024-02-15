@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useReview } from "../../hooks/useReview";
 import { Review } from "../../types/Review";
@@ -12,11 +12,28 @@ const Reviews = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
   const { getReviewByUserId } = useReview();
   const { getGameById } = useGame();
-  const [games, setGames] = useState<Game>();
+  const [games, setGames] = useState<{ [key: string]: Game }>({});
 
   useEffect(() => {
-    fetchReview();
-    fetchGame();
+    const fetchReviewAndGame = async () => {
+      const reviewResponse = await getReviewByUserId(id as string);
+      setReviews(reviewResponse);
+
+      const uniqueGameIds = [
+        ...new Set(reviewResponse.map((review) => review.game_id)),
+      ];
+      const gamesResponses = await Promise.all(
+        uniqueGameIds.map((gameId) => getGameById(gameId)),
+      );
+
+      const gamesMap = gamesResponses.reduce((acc, game) => {
+        acc[game.id] = game;
+        return acc;
+      }, {});
+      setGames(gamesMap);
+    };
+
+    fetchReviewAndGame();
   }, []);
 
   const fetchReview = async () => {
@@ -24,16 +41,6 @@ const Reviews = () => {
     setReviews(response);
   };
 
-  const fetchGame = async () => {
-    const gameIds = reviews.map((review) => review.game_id);
-    const gamesPromises = gameIds.map((id) => getGameById(id));
-    const games = await Promise.all(gamesPromises);
-    const gamesMap = games.reduce((acc, game) => {
-      acc[game.id] = game;
-      return acc;
-    }, {});
-    setGames(gamesMap);
-  };
   const handleDeleteSuccess = () => {
     alert("Avaliação deletada com sucesso!");
     fetchReview();
