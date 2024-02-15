@@ -1,0 +1,36 @@
+.game-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+.game-card img {
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.game-card h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+  margin: 10px 0;
+  text-align: center;
+}
+
+.game-card p {
+  font-size: 1rem;
+  color: #666;
+  margin: 10px 0;
+}

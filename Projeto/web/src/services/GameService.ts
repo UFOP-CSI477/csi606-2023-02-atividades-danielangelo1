@@ -16,7 +16,7 @@ export const createGameService = async (game: Game) => {
 
 export const getAllGamesService = async () => {
   try {
-    const response = await api.get(Endpoints.geral);
+    const response = await api.get(`${Endpoints.geral}s`);
     return response.data;
   } catch (err) {
     console.error(err);
