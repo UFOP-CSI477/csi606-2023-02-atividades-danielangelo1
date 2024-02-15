@@ -47,6 +47,7 @@ export default function FormReviewDialog({ game }: { game: Game }) {
               created_at: "",
               updated_at: "",
             });
+            alert("Avaliação enviada com sucesso!");
 
             handleClose();
           },

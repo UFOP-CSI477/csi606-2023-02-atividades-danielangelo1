@@ -2,14 +2,18 @@ import { useReview } from "../../hooks/useReview";
 
 interface deleteReviewButtonProps {
   id: string;
+  onDeleteSuccess: () => void;
 }
 
-const DeleteReviewButton = ({ id }: deleteReviewButtonProps) => {
+const DeleteReviewButton = ({
+  id,
+  onDeleteSuccess,
+}: deleteReviewButtonProps) => {
   const { deleteReview } = useReview();
 
   const handleClick = () => {
     deleteReview(id);
-    alert("Review deletada com sucesso!");
+    onDeleteSuccess();
   };
 
   return (

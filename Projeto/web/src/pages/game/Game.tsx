@@ -41,6 +41,7 @@ const GamePage = () => {
           </div>
         ))}
       </div>
+      {review.length === 0 && <p>Nenhuma avaliação cadastrada</p>}
     </>
   );
 };
