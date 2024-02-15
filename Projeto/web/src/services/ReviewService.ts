@@ -23,6 +23,15 @@ export const getReviewService = async () => {
   }
 };
 
+export const getReviewByIdService = async (id: string) => {
+  try {
+    const response = await api.get(`${Endpoints.geral}s/${id}`);
+    return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 export const deleteReviewService = async (id: string) => {
   try {
     const response = await api.delete(`${Endpoints.geral}/${id}`);

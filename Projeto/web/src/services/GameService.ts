@@ -23,6 +23,14 @@ export const getAllGamesService = async () => {
   }
 };
 
+export const getGameByIdService = async (id: string) => {
+  try {
+    const response = await api.get(`${Endpoints.geral}/${id}`);
+    return response.data;
+  } catch (err) {
+    console.error(err);
+  }
+};
 export const deleteGameService = async (id: string) => {
   try {
     const response = await api.delete(`${Endpoints.geral}/${id}`);

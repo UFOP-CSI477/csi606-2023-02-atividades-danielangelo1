@@ -2,12 +2,23 @@ import {
   createGameService,
   deleteGameService,
   getAllGamesService,
+  getGameByIdService,
 } from "../services/GameService";
 import { Game } from "../types/Game";
 
 export const useGame = () => {
   const getGames = async () => {
     const response = await getAllGamesService();
+
+    if (!response) {
+      return { error: "Error" };
+    }
+
+    return response;
+  };
+
+  const getGameById = async (id: string) => {
+    const response = await getGameByIdService(id);
 
     if (!response) {
       return { error: "Error" };
@@ -35,5 +46,5 @@ export const useGame = () => {
 
     return response;
   };
-  return { getGames, createGame, deleteGame };
+  return { getGames, getGameById, createGame, deleteGame };
 };
