@@ -8,9 +8,11 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { useReview } from "../../hooks/useReview";
 import { Game } from "../../types/Game";
+import { MenuItem } from "@mui/material";
 
 export default function FormReviewDialog({ game }: { game: Game }) {
   const [open, setOpen] = React.useState(false);
+  const [rating, setRating] = React.useState(5);
   const { createReview } = useReview();
 
   const handleClickOpen = () => {
@@ -77,12 +79,14 @@ export default function FormReviewDialog({ game }: { game: Game }) {
             variant="standard"
             select
             defaultValue={5}
+            value={rating}
+            onChange={(event) => setRating(+event.target.value)}
           >
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            {[1, 2, 3, 4, 5].map((value) => (
+              <MenuItem key={value} value={value}>
+                {value}
+              </MenuItem>
+            ))}
           </TextField>
         </DialogContent>
         <DialogActions>
