@@ -1,5 +1,6 @@
 import { FastifyReply, FastifyRequest } from "fastify";
 import { DeleteGameService } from "../../services/games/DeleteGameService";
+import { DeleteReviewService } from "../../services/reviews/DeleteReviewService";
 
 class DeleteReviewController {
   async handle(request: FastifyRequest, reply: FastifyReply) {
@@ -7,7 +8,7 @@ class DeleteReviewController {
       id: string;
     };
 
-    const reviewService = new DeleteGameService();
+    const reviewService = new DeleteReviewService();
     const review = await reviewService.handle({ id });
 
     reply.send(review);

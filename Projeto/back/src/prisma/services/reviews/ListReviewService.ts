@@ -16,6 +16,16 @@ class ListReviewService {
 
     return reviews;
   }
+
+  async handleByUserId(userId: string) {
+    const reviews = await prismaClient.gameReview.findMany({
+      where: {
+        user_id: userId,
+      },
+    });
+
+    return reviews;
+  }
 }
 
 export { ListReviewService };

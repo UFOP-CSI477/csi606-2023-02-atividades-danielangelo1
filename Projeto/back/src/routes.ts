@@ -68,4 +68,11 @@ export async function routes(
       return new ListReviewController().handleByGameId(request, reply);
     },
   );
+
+  fastify.get(
+    "/reviews/user/:id",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      return new ListReviewController().handleByUserId(request, reply);
+    },
+  );
 }
