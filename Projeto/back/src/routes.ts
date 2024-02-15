@@ -27,6 +27,13 @@ export async function routes(
   );
 
   fastify.get(
+    "/game/:id",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      return new ListGameController().handleByGameId(request, reply);
+    },
+  );
+
+  fastify.get(
     "/games",
     async (request: FastifyRequest, reply: FastifyReply) => {
       return new ListGameController().handle(request, reply);
@@ -52,6 +59,13 @@ export async function routes(
     "/reviews",
     async (request: FastifyRequest, reply: FastifyReply) => {
       return new ListReviewController().handle(request, reply);
+    },
+  );
+
+  fastify.get(
+    "/reviews/:id",
+    async (request: FastifyRequest, reply: FastifyReply) => {
+      return new ListReviewController().handleByGameId(request, reply);
     },
   );
 }

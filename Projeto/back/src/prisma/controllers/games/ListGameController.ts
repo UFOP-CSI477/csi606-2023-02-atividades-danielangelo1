@@ -9,6 +9,16 @@ class ListGameController {
 
     reply.send(games);
   }
+
+  async handleByGameId(request: FastifyRequest, reply: FastifyReply) {
+    const { id } = request.params as any;
+
+    const listGameService = new ListGameService();
+
+    const game = await listGameService.handleByGameId(id);
+
+    reply.send(game);
+  }
 }
 
 export { ListGameController };

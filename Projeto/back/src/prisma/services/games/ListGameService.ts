@@ -6,6 +6,16 @@ class ListGameService {
 
     return games;
   }
+
+  async handleByGameId(gameId: string) {
+    const game = await prismaClient.game.findFirst({
+      where: {
+        id: gameId,
+      },
+    });
+
+    return game;
+  }
 }
 
 export { ListGameService };

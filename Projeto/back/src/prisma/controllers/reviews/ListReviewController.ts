@@ -9,6 +9,16 @@ class ListReviewController {
 
     reply.send(reviews);
   }
+
+  async handleByGameId(request: FastifyRequest, reply: FastifyReply) {
+    const { id } = request.params as any;
+
+    const listReviewServide = new ListReviewService();
+
+    const reviews = await listReviewServide.handleByGameId(id);
+
+    reply.send(reviews);
+  }
 }
 
 export { ListReviewController };
