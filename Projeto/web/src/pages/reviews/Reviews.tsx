@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useReview } from "../../hooks/useReview";
 import { Review } from "../../types/Review";
 import { formatDate } from "../../utils/FormatDate";
+import DeleteReviewButton from "../../components/deleteReviewButton/DeleteReviewButton";
 
 const Reviews = () => {
   const { id } = useParams();
@@ -24,6 +25,7 @@ const Reviews = () => {
             <p>{review.review}</p>
             <p>Nota: {review.rating} estrelas</p>
             <p>Data da Avaliação: {formatDate(review.created_at)}</p>
+            <DeleteReviewButton id={review.id} />
           </div>
         ))}
       </div>
