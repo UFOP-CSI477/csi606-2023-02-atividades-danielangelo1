@@ -1,5 +1,6 @@
 import "./GameCard.css";
 import { Game } from "../../types/Game";
+import AddReviewButton from "../addReviewButton/AddReviewButton";
 
 interface GameCardProps {
   game: Game;
@@ -18,6 +19,7 @@ const GameCard = ({ game }: GameCardProps) => {
         <p>{game.genre}</p>
         <p>{game.year}</p>
         <p>{game.publisher}</p>
+        <AddReviewButton gameId={game.id} />
       </div>
     </>
   );
