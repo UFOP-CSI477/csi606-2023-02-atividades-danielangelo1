@@ -19,7 +19,7 @@ const GameCard = ({ game }: GameCardProps) => {
         <p>{game.genre}</p>
         <p>{game.year}</p>
         <p>{game.publisher}</p>
-        <AddReviewButton gameId={game.id} />
+        <AddReviewButton game={game} />
       </div>
     </>
   );

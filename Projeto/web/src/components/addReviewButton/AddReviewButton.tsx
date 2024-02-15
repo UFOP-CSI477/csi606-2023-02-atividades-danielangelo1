@@ -1,11 +1,17 @@
+import { Game } from "../../types/Game";
+import FormReviewDialog from "../formReviewDialog/FormReviewDialog";
 import "./AddReviewButton.css";
 
-interface AddReviewButtonProps {
-  gameId: string;
+interface GameReviewProps {
+  game: Game;
 }
 
-const AddReviewButton = ({ gameId }: AddReviewButtonProps) => {
-  return <button>Avaliar</button>;
+const AddReviewButton = ({ game }: GameReviewProps) => {
+  return (
+    <>
+      <FormReviewDialog game={game} />;
+    </>
+  );
 };
 
 export default AddReviewButton;
